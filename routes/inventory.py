@@ -1,14 +1,14 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 inventory = Blueprint('inventory', __name__)
 
 @inventory.route('/')
 def shows():
-    return 'Shows all inventory items.'
+    return render_template('index.html')
 
 @inventory.route('/add')
 def add():
-    return 'Adds a new item to the database'
+    return 'Adds a new item to the database.'
 
 @inventory.route('/edit')
 def edit():
@@ -16,4 +16,4 @@ def edit():
 
 @inventory.route('/delete')
 def delete():
-    return 'Deletes an item using its ID.'
+    return 'Deletes an item using its ID'
