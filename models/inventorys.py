@@ -2,17 +2,14 @@ from utils.db import db
 
 class Inventory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.string(255))
-    price = db.Column(db.Integer)
-    mac_address = db.Column(db.string(255))
-    serial_number = db.Column(db.string(255))
-    manufacturer = db.Column(db.string(255))
-    description = db.Column(db.string(255))
+    name = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    mac_address = db.Column(db.String(17), nullable=False)
+    serial_number = db.Column(db.String(50), nullable=False)
+    manufacturer = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
 
-    def __init__(self, name, price, mac_address, serial_number, manufacturer, description):
-        self.name = name
-        self.price = price
-        self.mac_address = mac_address
-        self.serial_number = serial_number
-        self.manufacturer = manufacturer
-        self.description = description
+    def __repr__(self):
+        return f"Inventory(id={self.id}, name={self.name}, price={self.price}, mac_address={self.mac_address}, serial_number={self.serial_number}, manufacturer={self.manufacturer}, description={self.description})"
+
+
