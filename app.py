@@ -52,6 +52,7 @@ def handle_inventory():
         ]
         return jsonify(result), 200
 
+app.register_blueprint(inventory)
 
 if __name__ == '__main__':
     app.run(debug=True)

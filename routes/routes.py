@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 #from flask import Blueprint
 from flask import request, jsonify
-from app import app, db, Inventory
+#from app import app, db, Inventory
 
 inventory = Blueprint('inventory', __name__)
 
