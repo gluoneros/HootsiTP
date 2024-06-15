@@ -11,5 +11,3 @@ class Inventory(db.Model):
 
     def __repr__(self):
         return f"Inventory(id={self.id}, name={self.name}, price={self.price}, mac_address={self.mac_address}, serial_number={self.serial_number}, manufacturer={self.manufacturer}, description={self.description})"
-
-
