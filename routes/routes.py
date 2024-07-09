@@ -7,9 +7,12 @@ inventory = Blueprint('inventory', __name__)
 
 @inventory.route('/')
 def shows():
-    return render_template('index.html')
+    inventory = Inventory.query.all()
+    return render_template('index.html', inventory=inventory)
 
 @inventory.route('/add')
+def add():
+    return render_template('add.html')
 
 @inventory.route('/edit')
 def edit():

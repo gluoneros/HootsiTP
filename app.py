@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from routes.routes import *
 
@@ -22,8 +22,8 @@ class Inventory(db.Model):
 #def home():
 #    return "hello"    
 
-@app.route('/add', methods=['GET', 'POST'])
-def add():
+@app.route('/additem', methods=['GET', 'POST'])
+def additem():
     if request.method == 'POST':
         data = request.form
         new_item = Inventory(
@@ -36,7 +36,8 @@ def add():
         )
         db.session.add(new_item)
         db.session.commit()
-        return jsonify({"message": "Item added successfully"}), 201
+        #return jsonify({"message": "Item added successfully"}), 201
+        return redirect('/add')
     elif request.method == 'GET':
         inventory_items = Inventory.query.all()
         result = [
@@ -51,6 +52,7 @@ def add():
             } for item in inventory_items
         ]
         return jsonify(result), 200
+    #return redirect('/add')
 
 app.register_blueprint(inventory)
 
