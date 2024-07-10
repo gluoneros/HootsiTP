@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from routes.routes import *
 
@@ -58,6 +58,13 @@ app.register_blueprint(inventory)
 
 with app.app_context():
     db.create_all()
+
+@app.route('/')
+def show_inventory():
+    inventory_items = Inventory.query.all()
+    return render_template('index.html', inventory_items=inventory_items)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

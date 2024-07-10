@@ -1,14 +1,13 @@
 from flask import Blueprint, render_template
-#from flask import Blueprint
 from flask import request, jsonify
-#from app import app, db, Inventory
+#from app import *
 
 inventory = Blueprint('inventory', __name__)
 
-@inventory.route('/')
-def shows():
-    inventory = Inventory.query.all()
-    return render_template('index.html', inventory=inventory)
+#@inventory.route('/')
+#def show_inventory():
+#    inventory_items = inventory.query.all()
+#    return render_template('index.html', inventory_items=inventory_items)
 
 @inventory.route('/add')
 def add():

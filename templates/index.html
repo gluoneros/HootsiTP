@@ -6,6 +6,16 @@
     ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam.
 </p>
 
-<div>
-    {% for inventory in inventorys %}
-</div>
+<h1>Lista de Productos</h1>
+<ul>
+    {% for item in inventory_items %}
+        <li>
+            <strong>Nombre:</strong> {{ item.name }}<br>
+            <strong>Precio:</strong> {{ item.price }}<br>
+            <strong>MAC Address:</strong> {{ item.mac_address }}<br>
+            <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
+            <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
+            <strong>Descripción:</strong> {{ item.description }}
+        </li>
+    {% endfor %}
+</ul>
