@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from routes.routes import *
+from models.inventorys import *
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://usuario1:usuario6@localhost/inventory_db'
@@ -18,9 +20,6 @@ class Inventory(db.Model):
     def __repr__(self):
         return f"Inventory(id={self.id}, name={self.name}, price={self.price}, mac_address={self.mac_address}, serial_number={self.serial_number}, manufacturer={self.manufacturer}, description={self.description})"
 
-#@app.route("/")
-#def home():
-#    return "hello"    
 
 @app.route('/additem', methods=['GET', 'POST'])
 def additem():

@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template
 from flask import request, jsonify
-#from app import *
+from models.inventorys import *
 
 inventory = Blueprint('inventory', __name__)
 
 #@inventory.route('/')
 #def show_inventory():
-#    inventory_items = inventory.query.all()
+#    inventory_items = Inventory.query.all()
 #    return render_template('index.html', inventory_items=inventory_items)
 
 @inventory.route('/add')
@@ -17,6 +17,8 @@ def add():
 def edit():
     return 'Edits an existing item using its ID'
 
-@inventory.route('/delete')
-def delete():
+@inventory.route('/delete/<id>')
+def delete(id):
+    inventory = Inventory.query.get(id)
+    print(inventory)
     return 'Deletes an item using its ID'
