@@ -21,4 +21,6 @@ def edit():
 def delete(id):
     inventory = Inventory.query.get(id)
     print(inventory)
+    db.session.delete(inventory)
+    db.session.commit()
     return 'Deletes an item using its ID'
