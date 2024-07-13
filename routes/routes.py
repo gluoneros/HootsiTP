@@ -17,6 +17,7 @@ def add():
 def edit():
     return 'Edits an existing item using its ID'
 
+'''
 @inventory.route('/delete/<id>')
 def delete(id):
     inventory = Inventory.query.get(id)
@@ -24,3 +25,4 @@ def delete(id):
     db.session.delete(inventory)
     db.session.commit()
     return 'Deletes an item using its ID'
+'''

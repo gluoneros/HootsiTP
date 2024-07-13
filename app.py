@@ -63,6 +63,17 @@ def show_inventory():
     inventory_items = Inventory.query.all()
     return render_template('index.html', inventory_items=inventory_items)
 
+@app.route('/delete', methods=['GET'])
+def show_delete_inventory():
+    inventory_items = Inventory.query.all()
+    return render_template('delete.html', inventory_items=inventory_items)
+
+@app.route('/delete/<int:item_id>', methods=['GET'])
+def delete_item(item_id):
+    item = Inventory.query.get_or_404(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    return jsonify({"message": f"Item with id {item_id} deleted successfully"}), 200
 
 
 if __name__ == '__main__':
