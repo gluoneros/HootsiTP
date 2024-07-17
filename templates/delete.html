@@ -17,7 +17,7 @@ ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequa
             <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
             <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
             <strong>Descripción:</strong> {{ item.description }}<br>
-            <a href="{{ url_for('delete_item', item_id=item.id) }}">Delete</a>
-        </li>
+            <a href="{{ url_for('delete_item', item_id=item.id) }}">Delete</a><br>
+        </li><br>
     {% endfor %}
 </ul>

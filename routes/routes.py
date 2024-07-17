@@ -15,7 +15,7 @@ def add():
 
 @inventory.route('/edit')
 def edit():
-    return 'Edits an existing item using its ID'
+    return render_template('edit.html')
 
 '''
 @inventory.route('/delete/<id>')
