@@ -6,3 +6,17 @@ adipisicing elit. Fuga doloribus atque illo perferendis e
 xpedita dolor impedit reprehenderit deleniti 
 ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam. </p>
 
+<h1>List of Products</h1>
+<ul>
+    {% for item in inventory_items %}
+        <li>
+            <strong>Nombre:</strong> {{ item.name }}<br>
+            <strong>Precio:</strong> {{ item.price }}<br>
+            <strong>MAC Address:</strong> {{ item.mac_address }}<br>
+            <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
+            <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
+            <strong>Descripción:</strong> {{ item.description }}<br>
+            <a href="{{ url_for('delete_item', item_id=item.id) }}">Edit</a><br>
+        </li><br>
+    {% endfor %}
+</ul>

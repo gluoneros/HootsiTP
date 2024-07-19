@@ -13,9 +13,11 @@ inventory = Blueprint('inventory', __name__)
 def add():
     return render_template('add.html')
 
+'''
 @inventory.route('/edit')
 def edit():
     return render_template('edit.html')
+'''
 
 '''
 @inventory.route('/delete/<id>')

@@ -75,6 +75,18 @@ def delete_item(item_id):
     db.session.commit()
     return jsonify({"message": f"Item with id {item_id} deleted successfully"}), 200
 
+@app.route('/edit', methods=['GET'])
+def show_edit_item():
+    inventory_items = Inventory.query.all()
+    return render_template('edit.html', inventory_items=inventory_items)
+
+@app.route('/edit/<int:item_id>', methods=['GET'])
+def edit_item(item_id):
+    item = Inventory.query.get_or_404(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    return jsonify({"message": f"Item with id {item_id} deleted successfully"}), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True)
