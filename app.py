@@ -80,12 +80,19 @@ def show_edit_item():
     inventory_items = Inventory.query.all()
     return render_template('edit.html', inventory_items=inventory_items)
 
-@app.route('/edit/<int:item_id>', methods=['GET'])
+@app.route('/edit/<int:item_id>', methods=['GET', 'POST'])
 def edit_item(item_id):
     item = Inventory.query.get_or_404(item_id)
-    db.session.delete(item)
-    db.session.commit()
-    return jsonify({"message": f"Item with id {item_id} deleted successfully"}), 200
+    if request.method == 'POST':
+        item.name = request.form['name']
+        item.price = request.form['price']
+        item.mac_address = request.form['mac_address']
+        item.serial_number = request.form['serial_number']
+        item.manufacturer = request.form['manufacturer']
+        item.description = request.form['description']
+        db.session.commit()
+        return jsonify({"message": f"Item with id {item_id} updated successfully"}), 200
+    return render_template('edit_item.html', item=item)
 
 
 if __name__ == '__main__':
