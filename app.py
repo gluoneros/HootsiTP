@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy
 from routes.routes import *
 from models.inventorys import *
