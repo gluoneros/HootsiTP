@@ -1,21 +1,26 @@
-<h1>Home. Show all inventory items</h1>
+{% extends "layout.html" %}
 
-<p>Lorem ipsum dolor sit amet consectetur, 
-    adipisicing elit. Fuga doloribus atque illo perferendis e
-    xpedita dolor impedit reprehenderit deleniti 
-    ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam.
-</p>
 
-<h1>Lista de Productos</h1>
-<ul>
-    {% for item in inventory_items %}
-        <li>
-            <strong>Nombre:</strong> {{ item.name }}<br>
-            <strong>Precio:</strong> {{ item.price }}<br>
-            <strong>MAC Address:</strong> {{ item.mac_address }}<br>
-            <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
-            <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
-            <strong>Descripción:</strong> {{ item.description }}<br>
-        </li><br>
-    {% endfor %}
-</ul>
+{% block title %}<h1>Home. Show all inventory items</h1>{% endblock %}
+
+{% block content %}
+    <p>Lorem ipsum dolor sit amet consectetur, 
+        adipisicing elit. Fuga doloribus atque illo perferendis e
+        xpedita dolor impedit reprehenderit deleniti 
+        ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam.
+    </p>
+
+    <h1>Lista de Productos</h1>
+    <ul>
+        {% for item in inventory_items %}
+            <li>
+                <strong>Nombre:</strong> {{ item.name }}<br>
+                <strong>Precio:</strong> {{ item.price }}<br>
+                <strong>MAC Address:</strong> {{ item.mac_address }}<br>
+                <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
+                <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
+                <strong>Descripción:</strong> {{ item.description }}<br>
+            </li><br>
+        {% endfor %}
+    </ul>
+{% endblock %}
