@@ -11,7 +11,6 @@
     ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam.
     </p>
 
-    <h1>List of Products</h1>
     <ul>
         {% for item in inventory_items %}
         <div class="card" style="width: 18rem;">
@@ -24,7 +23,7 @@
                     <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
                     <strong>Descripción:</strong> {{ item.description }}<br>
                     <a href="{{ url_for('delete_item', item_id=item.id) }}" .bg-primary >Delete</a><br>
-                </li><br>
+                </li>
             </div>
         </div><br>
         {% endfor %}

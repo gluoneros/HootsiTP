@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Editar Producto</title>
-</head>
-<body>
-    <h1>Editar Producto</h1>
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h3 class="text-primary">Edit Item</h3>
     <form method="POST">
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" value="{{ item.name }}"><br>
@@ -18,7 +15,6 @@
         <input type="text" id="manufacturer" name="manufacturer" value="{{ item.manufacturer }}"><br>
         <label for="description">Descripción:</label>
         <input type="text" id="description" name="description" value="{{ item.description }}"><br>
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}

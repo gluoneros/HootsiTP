@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy
 from routes.routes import *
 from models.inventorys import *
-
+import config
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://usuario1:usuario6@localhost/inventory_db'
