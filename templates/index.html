@@ -1,26 +1,28 @@
 {% extends 'layout.html' %}
 
 
-{% block title %}<h1>Home. Show all inventory items</h1>{% endblock %}
-
 {% block content %}
+    <h3 class="text-primary">Home. Show all inventory items</h3>
     <p>Lorem ipsum dolor sit amet consectetur, 
         adipisicing elit. Fuga doloribus atque illo perferendis e
         xpedita dolor impedit reprehenderit deleniti 
         ullam excepturi inventore, velit totam asperiores eligendi officia nemo consequatur rem nam.
     </p>
 
-    <h1>Lista de Productos</h1>
     <ul>
-        {% for item in inventory_items %}
-            <li>
-                <strong>Nombre:</strong> {{ item.name }}<br>
-                <strong>Precio:</strong> {{ item.price }}<br>
-                <strong>MAC Address:</strong> {{ item.mac_address }}<br>
-                <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
-                <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
-                <strong>Descripción:</strong> {{ item.description }}<br>
-            </li><br>
-        {% endfor %}
+    {% for item in inventory_items %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <li>
+                    <strong>Nombre:</strong> {{ item.name }}<br>
+                    <strong>Precio:</strong> {{ item.price }}<br>
+                    <strong>MAC Address:</strong> {{ item.mac_address }}<br>
+                    <strong>Número de Serie:</strong> {{ item.serial_number }}<br>
+                    <strong>Fabricante:</strong> {{ item.manufacturer }}<br>
+                    <strong>Descripción:</strong> {{ item.description }}<br>
+                </li><br>
+            </div>
+        </div><br>
+    {% endfor %}    
     </ul>
 {% endblock %}
